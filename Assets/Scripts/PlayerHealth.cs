@@ -13,17 +13,10 @@ public class PlayerHealth : MonoBehaviour
     Player player;
 
 
-    public static PlayerHealth instance;
-
-
     private void Awake()
     {
-
-        instance = this;
-
         heartImage = GetComponent<Image>();
         player = GetComponent<Player>();
-
     }
 
     public void setHeartStatus(HeartStatus status)

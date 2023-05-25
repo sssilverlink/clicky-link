@@ -125,6 +125,7 @@ MonoBehaviour:
   currentHP: 15
   maxHP: 15
   moneyToGive: 2
+  attackDamage: 1
   healthBarFilled: {fileID: 5377652663672226300}
 --- !u!1 &5377652663962991162
 GameObject:

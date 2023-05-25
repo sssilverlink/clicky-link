@@ -5,12 +5,22 @@ using ZSerializer;
 
 public class PlayerHealthBar : PersistentMonoBehaviour
 {
+
     public GameObject heartPrefab;
-    public PlayerHealth playerHealth;
+    public Player player;
 
     List<PlayerHealth> hearts = new List<PlayerHealth>();
 
 
+    private void OnEnable()
+    {
+        Player.OnPlayerDamaged += DrawHearts;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDamaged -= DrawHearts;
+    }
 
     private void Start()
     {
@@ -20,22 +30,28 @@ public class PlayerHealthBar : PersistentMonoBehaviour
     public void DrawHearts()
     {
        int heartsToMake;
-        ClearHearts();
+       ClearHearts();
 
         // Determine number of hearts to draw based on Player Max Health
-        float maxHealthRemainder = 0;//playerHealth.maxHealth % 4;
+        float maxHealthRemainder = player.maxHP % 4;
         if (maxHealthRemainder > 0)
         {
-            heartsToMake = (int)(0);// playerHealth.maxHealth / 4 + 1);
+            heartsToMake = (int)(player.maxHP / 4 + 1);
         }
         else
         {
-            heartsToMake = (int)(0);//playerHealth.maxHealth / 4);
+            heartsToMake = (int)(player.maxHP / 4);
         }
         
         for (int i = 0; i < heartsToMake; i++)
         {
             CreateEmptyHearts();
+        }
+
+        for(int i = 0;i < hearts.Count;i++)
+        {
+            int heartStatusRemainder = Mathf.Clamp(player.currentHP - (i*4), 0, 4);
+            hearts[i].setHeartStatus((HeartStatus)heartStatusRemainder);
         }
     }
 

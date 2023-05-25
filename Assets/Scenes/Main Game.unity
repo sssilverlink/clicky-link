@@ -715,8 +715,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 36, y: 32}
-  m_Spacing: {x: 3, y: 0}
+  m_CellSize: {x: 73, y: 64}
+  m_Spacing: {x: -40, y: -30}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &572607706
@@ -773,10 +773,10 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: 8fa2cab1a483c734aa80c46488794218
+  _zuid: 5beb122d5d666a746b604c3a8d7138b5
   _gozuid: ddf9b9060614f244bbc2137a6822c30b
   heartPrefab: {fileID: 4175129196095922754, guid: cb4072636e61c874fa53514134bd30c3, type: 3}
-  playerHealth: {fileID: 1882815843}
+  player: {fileID: 1882815844}
 --- !u!1 &636338797
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +986,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: a8abc18f7ee270448b63726cf2364dae
+  _zuid: b444ab514ef99d44da172a2924b871aa
   _gozuid: 9864cc12283d60247b3519e5f671af8b
   attackFairy: []
   attackFairyPrice: 65
@@ -1019,8 +1019,8 @@ MonoBehaviour:
   - {fileID: 2743397401687518617, guid: 479f45cee2ab40149b3e511b74f2f4fa, type: 3}
   currentEnemy: {fileID: 1202352594}
   canvas: {fileID: 852880515}
-  spawnTime: 1
-  enemyAttackTimer: 1
+  spawnTime: 2
+  enemyAttackTimer: 2
   currentPlayer: {fileID: 1882815844}
 --- !u!114 &687369268
 MonoBehaviour:
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: b3abb003e5d5ba548ae382b1fb230f77
+  _zuid: d9060fc0fb44b3740b5f33af074ee5ca
   _gozuid: 9864cc12283d60247b3519e5f671af8b
   money: 150
   moneyText: {fileID: 559728099}
@@ -2336,7 +2336,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882815842}
-  - component: {fileID: 1882815843}
   - component: {fileID: 1882815844}
   m_Layer: 0
   m_Name: Player
@@ -2362,23 +2361,6 @@ Transform:
   m_Father: {fileID: 852880515}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1882815843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882815840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c096c88078828d54bb15c44b52f9157c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullHeart: {fileID: 1202018945, guid: 17834447bdd39d64389c1c7fb0f7de20, type: 3}
-  heart3: {fileID: 155610046, guid: 17834447bdd39d64389c1c7fb0f7de20, type: 3}
-  heart2: {fileID: -590657879, guid: 17834447bdd39d64389c1c7fb0f7de20, type: 3}
-  heart1: {fileID: -1545125181, guid: 17834447bdd39d64389c1c7fb0f7de20, type: 3}
-  emptyHeart: {fileID: -1637639893, guid: 17834447bdd39d64389c1c7fb0f7de20, type: 3}
 --- !u!114 &1882815844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,7 +2377,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: 3e30c0a5956946a41a70c7dbabf5da7a
+  _zuid: e418c90aaaff0d045a6c4d787fff9036
   _gozuid: 2fd3eb851c4a14c4caa2c9aab3fbd982
   currentHP: 5
   maxHP: 5
@@ -2414,7 +2396,7 @@ GameObject:
   - component: {fileID: 1913728520}
   - component: {fileID: 1913728519}
   m_Layer: 0
-  m_Name: Health
+  m_Name: Health Textbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

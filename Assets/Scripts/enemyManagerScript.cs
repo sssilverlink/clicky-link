@@ -10,8 +10,8 @@ public class enemyManagerScript : MonoBehaviour
     public Enemy currentEnemy;
     public Transform canvas;
     public static enemyManagerScript instance;
-    public float spawnTime = 1.0f;
-    public float enemyAttackTimer = 1.0f;
+    public float spawnTime;
+    public float enemyAttackTimer;
     public Player currentPlayer;
 
     private void Awake()
@@ -59,8 +59,8 @@ public class enemyManagerScript : MonoBehaviour
 
         // Takes Enemy Damage, attacks player once every 2 seconds
         int enemyAttack = currentEnemy.attackDamage;
-        currentPlayer = GetComponent<Player>();
         spawnTime -= Time.deltaTime;
+        //Debug.Log("spawnTime: " + spawnTime.ToString());
         while (spawnTime <= 0.0f)
         {
             currentPlayer.damage(enemyAttack);

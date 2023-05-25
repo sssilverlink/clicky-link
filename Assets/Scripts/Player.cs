@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZSerializer;
 using TMPro;
-
+using System;
 
 public class Player : PersistentMonoBehaviour
 {
+
+    public static event Action OnPlayerDamaged;
+
     public int currentHP;
     public int maxHP = 5;
 
@@ -27,11 +30,16 @@ public class Player : PersistentMonoBehaviour
     {
         //Damage Player
         currentHP -= (int)damage;
+        
+        OnPlayerDamaged?.Invoke();
+
         playerCurrentHPTextBox.text = currentHP.ToString();
 
         if (currentHP < 0)
         {
-            // Player is Dead
+            currentHP = 0;
+            Debug.Log("Player is dead.");
+            // Player Is dead
         }
     }
 
