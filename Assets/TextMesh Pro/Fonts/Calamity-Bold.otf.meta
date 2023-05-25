@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 97801fe96e2a3cb48890cefed0927f7c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Calamity
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c51f296bd64dea34ea569aed6e931f30, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
