@@ -963,7 +963,6 @@ GameObject:
   - component: {fileID: 687369268}
   - component: {fileID: 687369267}
   - component: {fileID: 687369266}
-  - component: {fileID: 687369270}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1021,7 +1020,7 @@ MonoBehaviour:
   currentEnemy: {fileID: 1202352594}
   canvas: {fileID: 852880515}
   spawnTime: 1
-  enemyAttackTime: 1
+  enemyAttackTimer: 1
   currentPlayer: {fileID: 1882815844}
 --- !u!114 &687369268
 MonoBehaviour:
@@ -1066,19 +1065,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &687369270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687369265}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d808146a8a9c27042880a3be4c3bc420, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStructure: {fileID: 1882815844}
 --- !u!1 &786586936
 GameObject:
   m_ObjectHideFlags: 0
