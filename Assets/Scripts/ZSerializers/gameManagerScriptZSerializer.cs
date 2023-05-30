@@ -5,6 +5,7 @@ public sealed class gameManagerScriptZSerializer : ZSerializer.Internal.ZSeriali
     public TMPro.TextMeshProUGUI moneyText;
     public TMPro.TextMeshProUGUI levelCounter;
     public TMPro.TextMeshProUGUI killCounter;
+    public UnityEngine.Canvas credits;
     public System.Int32 level;
     public System.Int32 levelRequirement;
     public System.Int32 killCount;
@@ -20,6 +21,7 @@ public sealed class gameManagerScriptZSerializer : ZSerializer.Internal.ZSeriali
          moneyText = (TMPro.TextMeshProUGUI)typeof(gameManagerScript).GetField("moneyText").GetValue(instance);
          levelCounter = (TMPro.TextMeshProUGUI)typeof(gameManagerScript).GetField("levelCounter").GetValue(instance);
          killCounter = (TMPro.TextMeshProUGUI)typeof(gameManagerScript).GetField("killCounter").GetValue(instance);
+         credits = (UnityEngine.Canvas)typeof(gameManagerScript).GetField("credits").GetValue(instance);
          level = (System.Int32)typeof(gameManagerScript).GetField("level").GetValue(instance);
          levelRequirement = (System.Int32)typeof(gameManagerScript).GetField("levelRequirement").GetValue(instance);
          killCount = (System.Int32)typeof(gameManagerScript).GetField("killCount").GetValue(instance);
@@ -36,6 +38,7 @@ public sealed class gameManagerScriptZSerializer : ZSerializer.Internal.ZSeriali
          typeof(gameManagerScript).GetField("moneyText").SetValue(component, moneyText);
          typeof(gameManagerScript).GetField("levelCounter").SetValue(component, levelCounter);
          typeof(gameManagerScript).GetField("killCounter").SetValue(component, killCounter);
+         typeof(gameManagerScript).GetField("credits").SetValue(component, credits);
          typeof(gameManagerScript).GetField("level").SetValue(component, level);
          typeof(gameManagerScript).GetField("levelRequirement").SetValue(component, levelRequirement);
          typeof(gameManagerScript).GetField("killCount").SetValue(component, killCount);

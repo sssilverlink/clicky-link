@@ -14,9 +14,12 @@ public class gameManagerScript : PersistentMonoBehaviour
     public TextMeshProUGUI levelCounter;
     public TextMeshProUGUI killCounter;
 
+ 
     private static gameManagerScript __instance;
     public static gameManagerScript instance { get { return __instance; } }
 
+
+    public Canvas credits;
 
     public int level = 1;
     public int levelRequirement = 10;
@@ -36,6 +39,8 @@ public class gameManagerScript : PersistentMonoBehaviour
 
     public void loadGame()
     {
+
+        SceneManager.LoadScene(1);
         ZSerialize.LoadScene();
         moneyText.text = money.ToString();
         enemyManagerScript.instance.replaceEnemy(gameObject);
@@ -47,6 +52,11 @@ public class gameManagerScript : PersistentMonoBehaviour
     public void newGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void showCredits()
+    {
+        credits.enabled = true;
     }
 
     public void addKill()

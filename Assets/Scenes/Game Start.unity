@@ -561,7 +561,12 @@ MonoBehaviour:
   _gozuid: 0096ec614b91f354a86bc1c22d61b94b
   money: 0
   moneyText: {fileID: 0}
-  playerName: 
+  levelCounter: {fileID: 0}
+  killCounter: {fileID: 0}
+  credits: {fileID: 0}
+  level: 1
+  levelRequirement: 10
+  killCount: 1
   baseAttack: 0
   attackMultiplier: 0
   attackPower: 0
@@ -1077,7 +1082,7 @@ GameObject:
   - component: {fileID: 688495232}
   - component: {fileID: 688495231}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: Credits Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,7 +1152,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 688495232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1932126640}
+        m_TargetAssemblyTypeName: gameManagerScript, Assembly-CSharp
+        m_MethodName: showCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &688495232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,11 +1677,16 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: bd09561a50551cb48b2bd495bde41d11
+  _zuid: 43043e108e3d48d4ab242b7778e13459
   _gozuid: eca67a4f7714fbe47b5b82dd00d36d51
   money: 0
   moneyText: {fileID: 0}
-  playerName: 
+  levelCounter: {fileID: 0}
+  killCounter: {fileID: 0}
+  credits: {fileID: 0}
+  level: 1
+  levelRequirement: 10
+  killCount: 1
   baseAttack: 0
   attackMultiplier: 0
   attackPower: 0
@@ -3030,11 +3052,16 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: 9dcacf8f79eb79049b852e883a0d5a09
+  _zuid: de4192d37c2204b4f9ba024cac722aba
   _gozuid: c137dfd42f6f6bb4489bcdd749e88ce3
   money: 0
   moneyText: {fileID: 0}
-  playerName: 
+  levelCounter: {fileID: 0}
+  killCounter: {fileID: 0}
+  credits: {fileID: 944563517}
+  level: 1
+  levelRequirement: 10
+  killCount: 1
   baseAttack: 0
   attackMultiplier: 0
   attackPower: 0
