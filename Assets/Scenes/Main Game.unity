@@ -773,7 +773,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: 5beb122d5d666a746b604c3a8d7138b5
+  _zuid: e92e50943e34aa34a81a381ae445477e
   _gozuid: ddf9b9060614f244bbc2137a6822c30b
   heartPrefab: {fileID: 4175129196095922754, guid: cb4072636e61c874fa53514134bd30c3, type: 3}
   player: {fileID: 1882815844}
@@ -986,7 +986,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: b444ab514ef99d44da172a2924b871aa
+  _zuid: 7e99fbb6642e710449a3af3379d6596c
   _gozuid: 9864cc12283d60247b3519e5f671af8b
   attackFairy: []
   attackFairyPrice: 65
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: d9060fc0fb44b3740b5f33af074ee5ca
+  _zuid: b1fae4a1afccbe84eba8e082a1bb0e84
   _gozuid: 9864cc12283d60247b3519e5f671af8b
   money: 150
   moneyText: {fileID: 559728099}
@@ -2377,7 +2377,7 @@ MonoBehaviour:
   isOn: 1
   groupID: 0
   autoSync: 1
-  _zuid: e418c90aaaff0d045a6c4d787fff9036
+  _zuid: 5e2589cc6d2b30a4b9b3b1afd7def811
   _gozuid: 2fd3eb851c4a14c4caa2c9aab3fbd982
   currentHP: 5
   maxHP: 5

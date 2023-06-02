@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class gameManagerScript : PersistentMonoBehaviour
 {
+
+
     public int money;
 
     public TextMeshProUGUI moneyText;
@@ -19,8 +21,6 @@ public class gameManagerScript : PersistentMonoBehaviour
     public static gameManagerScript instance { get { return __instance; } }
 
 
-    public Canvas credits;
-
     public int level = 1;
     public int levelRequirement = 10;
     public int killCount = 1;
@@ -30,33 +30,33 @@ public class gameManagerScript : PersistentMonoBehaviour
     public int attackPower;
 
 
+    private void Start()
+    {
+        int loadGameSaved = PlayerPrefs.GetInt("Load Game");
+        if (loadGameSaved == 1)
+        {
+            loadGame();
+            // clickManagerScript.instance.loadGame();
+        }
+        moneyText.text = money.ToString();
+        levelCounter.text = "Level: " + level.ToString();
+    }
     private void Awake()
     {
         __instance = this;
         DontDestroyOnLoad(this);
-
     }  
 
     public void loadGame()
     {
-
-        SceneManager.LoadScene(1);
+        Debug.Log("Load Game was called");
         ZSerialize.LoadScene();
-        moneyText.text = money.ToString();
         enemyManagerScript.instance.replaceEnemy(gameObject);
+        gameManagerScript.instance.loadGame();
     }
     public void saveGame()
     {
         ZSerialize.SaveScene();
-    }
-    public void newGame()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void showCredits()
-    {
-        credits.enabled = true;
     }
 
     public void addKill()

@@ -24,7 +24,9 @@ public class clickManagerScript : PersistentMonoBehaviour
     public int tForcePowerUpgradeCount;
     public TextMeshProUGUI tForcePowerQtyText;
     public TextMeshProUGUI tForcePowerLabel;
-
+    
+    private static clickManagerScript __instance;
+    public static clickManagerScript instance { get { return __instance; } }
 
 
     // Update is called once per frame
@@ -33,8 +35,6 @@ public class clickManagerScript : PersistentMonoBehaviour
         // Loop through each Autoclicker
         for (int i = 0; i < attackFairy.Count; i++)
         {
-            Debug.Log(attackFairy[i].ToString() + "Time: " + Time.time);
-
             attackFairy[i] -= Time.deltaTime;
 
             while (attackFairy[i] <= 0.0f)
