@@ -7,6 +7,10 @@ using System;
 
 public class Player : PersistentMonoBehaviour
 {
+    private static Player __instance;
+
+    public static Player Instance { get { return __instance; } }
+
 
     public static event Action OnPlayerDamaged;
 
@@ -14,18 +18,38 @@ public class Player : PersistentMonoBehaviour
     public int maxHP = 5;
 
     public string playerName;
-    public TextMeshProUGUI playerNameTextBox;
+    [NonZSerialized] public TextMeshProUGUI playerNameTextBox;
 
-    public TextMeshProUGUI playerCurrentHPTextBox;
+    [NonZSerialized] public TextMeshProUGUI playerCurrentHPTextBox;
 
     private void Start()
     {
-        currentHP = maxHP;
+        if (MainMenuScript.toLoadGame = false)
+        {
+            currentHP = maxHP;
+        }
+
         playerNameTextBox.text = playerName;
         playerCurrentHPTextBox.text = currentHP.ToString();
-
     }
 
+
+    private void Awake()
+    {
+        if (__instance != null && __instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            __instance = this;
+        }
+    }
+
+    public void loadGame()
+    {
+
+    }
     public void damage(int damage)
     {
         //Damage Player
@@ -35,11 +59,11 @@ public class Player : PersistentMonoBehaviour
 
         playerCurrentHPTextBox.text = currentHP.ToString();
 
-        if (currentHP < 0)
+        if (currentHP <= 0)
         {
             currentHP = 0;
             Debug.Log("Player is dead.");
-            // Player Is dead
+            gameManagerScript.instance.gameOver();
         }
     }
 

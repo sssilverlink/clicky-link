@@ -12,15 +12,17 @@ public class gameManagerScript : PersistentMonoBehaviour
 
     public int money;
 
-    public TextMeshProUGUI moneyText;
-    public TextMeshProUGUI levelCounter;
-    public TextMeshProUGUI killCounter;
+    [NonZSerialized] public TextMeshProUGUI moneyText;
+    [NonZSerialized] public TextMeshProUGUI levelCounter;
+    [NonZSerialized] public TextMeshProUGUI killCounter;
 
+    [NonZSerialized] public GameObject gameOverMenu;
  
     private static gameManagerScript __instance;
     public static gameManagerScript instance { get { return __instance; } }
 
-
+    [NonZSerialized] public bool gameActive = true;
+    
     public int level = 1;
     public int levelRequirement = 10;
     public int killCount = 1;
@@ -32,14 +34,13 @@ public class gameManagerScript : PersistentMonoBehaviour
 
     private void Start()
     {
-        int loadGameSaved = PlayerPrefs.GetInt("Load Game");
-        if (loadGameSaved == 1)
+        if (MainMenuScript.toLoadGame == true)
         {
             loadGame();
-            // clickManagerScript.instance.loadGame();
         }
-        moneyText.text = money.ToString();
+        moneyText.text = "x" + money.ToString();
         levelCounter.text = "Level: " + level.ToString();
+        SceneManager.UnloadSceneAsync(0);
     }
     private void Awake()
     {
@@ -52,7 +53,10 @@ public class gameManagerScript : PersistentMonoBehaviour
         Debug.Log("Load Game was called");
         ZSerialize.LoadScene();
         enemyManagerScript.instance.replaceEnemy(gameObject);
-        gameManagerScript.instance.loadGame();
+        moneyText.text = "x" + money.ToString();
+        killCounter.text = killCount.ToString() + "/" + levelRequirement;
+        levelCounter.text = "Level: " + level.ToString();
+
     }
     public void saveGame()
     {
@@ -74,18 +78,19 @@ public class gameManagerScript : PersistentMonoBehaviour
     {
         level++;
         levelCounter.text = "Level: " + level.ToString();
+        ZSerialize.SaveScene();
     }
 
     public void addMoney(int amount)
     {
         money += amount * level;
-        moneyText.text = money.ToString();
+        moneyText.text = "x" + money.ToString();
     }
 
     public void removeMoney(int amount)
     {
         money -= amount;
-        moneyText.text = money.ToString();
+        moneyText.text = "x" + money.ToString();
     }
 
     public int getAttackPower()
@@ -94,4 +99,10 @@ public class gameManagerScript : PersistentMonoBehaviour
         return (attackPower);
     }
 
+    public void gameOver()
+    {
+        gameActive = false;
+        Debug.Log("Game OVer Called");
+        gameOverMenu.SetActive(true);
+    }
 }

@@ -12,18 +12,18 @@ public class clickManagerScript : PersistentMonoBehaviour
     public int attackFairyPrice;
     public int attackFairyPower = 1;
     private const float attackFairyTime = 1.0f;
-    public TextMeshProUGUI attackFairyQtyText;
-    public TextMeshProUGUI attackFairyLabel;
+    [NonZSerialized] public TextMeshProUGUI attackFairyQtyText;
+    [NonZSerialized] public TextMeshProUGUI attackFairyLabel;
 
     public int swordUpgradePrice;
     public int swordUpgradeCount;
-    public TextMeshProUGUI swordUpgradeQtyText;
-    public TextMeshProUGUI swordUpgradeLabel;
+    [NonZSerialized] public TextMeshProUGUI swordUpgradeQtyText;
+    [NonZSerialized] public TextMeshProUGUI swordUpgradeLabel;
 
     public int tForcePwrUpgradePrice;
     public int tForcePowerUpgradeCount;
-    public TextMeshProUGUI tForcePowerQtyText;
-    public TextMeshProUGUI tForcePowerLabel;
+    [NonZSerialized] public TextMeshProUGUI tForcePowerQtyText;
+    [NonZSerialized] public TextMeshProUGUI tForcePowerLabel;
     
     private static clickManagerScript __instance;
     public static clickManagerScript instance { get { return __instance; } }
@@ -33,16 +33,27 @@ public class clickManagerScript : PersistentMonoBehaviour
     void Update()
     {
         // Loop through each Autoclicker
-        for (int i = 0; i < attackFairy.Count; i++)
+        if (gameManagerScript.instance.gameActive)
         {
-            attackFairy[i] -= Time.deltaTime;
-
-            while (attackFairy[i] <= 0.0f)
+            for (int i = 0; i < attackFairy.Count; i++)
             {
-                attackFairy[i] += attackFairyTime;
-                enemyManagerScript.instance.currentEnemy.damage(attackFairyPower * gameManagerScript.instance.attackMultiplier);
+                attackFairy[i] -= Time.deltaTime;
+
+                while (attackFairy[i] <= 0.0f)
+                {
+                    attackFairy[i] += attackFairyTime;
+                    enemyManagerScript.instance.currentEnemy.damage(attackFairyPower * gameManagerScript.instance.attackMultiplier);
+                }
             }
         }
+        tForcePowerQtyText.text = "x " + tForcePowerUpgradeCount.ToString();
+        tForcePowerLabel.text = "Triforce \n of Power \n (" + tForcePwrUpgradePrice.ToString() + ")";
+
+        swordUpgradeQtyText.text = "x " + swordUpgradeCount.ToString();
+        swordUpgradeLabel.text = "Sword \n Upgrade \n(" + swordUpgradePrice.ToString() + ")";
+
+        attackFairyQtyText.text = "x " + attackFairy.Count.ToString();
+        attackFairyLabel.text = "Attack \nfairy \n(" + attackFairyPrice.ToString() + ")";
     }
 
     public void OnBuyAttackFairy()
@@ -93,7 +104,7 @@ public class clickManagerScript : PersistentMonoBehaviour
         }
     }
 
-    public void loadGame()
+    public async void loadGame()
     {
         ZSerialize.LoadScene();
         tForcePowerQtyText.text = "x " + tForcePowerUpgradeCount.ToString();

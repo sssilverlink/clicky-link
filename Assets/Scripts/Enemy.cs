@@ -38,7 +38,11 @@ public class Enemy : MonoBehaviour
 
     public void OnMouseDown()
     {
-        damage(gameManagerScript.instance.getAttackPower());
+        if (gameManagerScript.instance.gameActive)
+        {
+            damage(gameManagerScript.instance.getAttackPower());
+        }
+
     }
 
 }

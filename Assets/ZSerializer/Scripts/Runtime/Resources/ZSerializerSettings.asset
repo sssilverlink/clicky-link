@@ -165,9 +165,6 @@ MonoBehaviour:
         PublicKeyToken=null
       - ParentTest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       - SerializationTest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      - clickManagerScript, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      - gameManagerScript, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      - PlayerHealth, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       values:
       - isOn: 1
         groupID: 0
@@ -200,10 +197,4 @@ MonoBehaviour:
       - isOn: 1
         groupID: 0
       - isOn: 1
-        groupID: 0
-      - isOn: 1
-        groupID: 0
-      - isOn: 1
-        groupID: 0
-      - isOn: 0
         groupID: 0

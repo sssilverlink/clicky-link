@@ -63,8 +63,12 @@ public class enemyManagerScript : MonoBehaviour
         //Debug.Log("spawnTime: " + spawnTime.ToString());
         while (spawnTime <= 0.0f)
         {
-            currentPlayer.damage(enemyAttack);
-            spawnTime = enemyAttackTimer;
+            if (gameManagerScript.instance.gameActive)
+            {
+                currentPlayer.damage(enemyAttack);
+                spawnTime = enemyAttackTimer;
+            }
+
         }
 
 

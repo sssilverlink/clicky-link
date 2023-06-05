@@ -609,7 +609,6 @@ MonoBehaviour:
   moneyText: {fileID: 0}
   levelCounter: {fileID: 0}
   killCounter: {fileID: 0}
-  credits: {fileID: 0}
   level: 1
   levelRequirement: 10
   killCount: 1
@@ -3282,7 +3281,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
